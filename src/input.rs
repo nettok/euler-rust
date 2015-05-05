@@ -9,7 +9,7 @@ pub enum Input<T> {
 }
 
 // TODO: generalizar a mas de un argumento
-pub fn get_input_from_args() -> Option<Input<u64>> {
+pub fn get_input_from_args() -> Option<Input<usize>> {
     let args: Vec<String> = env::args().collect();
 
     return
@@ -17,7 +17,7 @@ pub fn get_input_from_args() -> Option<Input<u64>> {
             None
         }
         else {
-            match u64::from_str(&args[1]) {
+            match usize::from_str(&args[1]) {
                 Ok(x) => Some(Input::Ok(x)),
                 Err(err) => Some(Input::Err(args[1].clone(), err))
             }

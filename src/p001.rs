@@ -6,7 +6,7 @@
 //!
 //! Find the sum of all the multiples of 3 or 5 below 1000.
 
-pub fn imperative(below: u64) -> u64 {
+pub fn imperative(below: usize) -> usize {
     let mut sum = 0;
 
     for x in 3..below {
@@ -18,7 +18,7 @@ pub fn imperative(below: u64) -> u64 {
     sum
 }
 
-pub fn declarative(below: u64) -> u64 {
+pub fn declarative(below: usize) -> usize {
     (3..below)
         .filter(|x| x % 3 == 0 || x % 5 == 0)
         .sum()

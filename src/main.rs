@@ -7,6 +7,7 @@ mod p001;
 use p001::{imperative, declarative};
 
 mod p002;
+mod p003;
 
 fn main() {
     let below = match get_input_from_args().unwrap_or(Input::Ok(1000)) {
