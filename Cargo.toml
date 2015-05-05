@@ -1,4 +1,4 @@
 [package]
-name = "0001"
+name = "euler-rust"
 version = "0.1.0"
 authors = ["Ernesto Menéndez <pyalec@gmail.com>"]
