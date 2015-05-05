@@ -8,18 +8,18 @@ pub enum Input<T> {
     Err(String, core::num::ParseIntError)
 }
 
-// TODO: generalizar a mas de un argumento y compartir
-pub fn get_input_from_args(default: u64) -> Input<u64> {
+// TODO: generalizar a mas de un argumento
+pub fn get_input_from_args() -> Option<Input<u64>> {
     let args: Vec<String> = env::args().collect();
 
     return
         if args.len() < 2 {
-            Input::Ok(default)
+            None
         }
         else {
             match u64::from_str(&args[1]) {
-                Ok(x) => Input::Ok(x),
-                Err(err) => Input::Err(args[1].clone(), err)
+                Ok(x) => Some(Input::Ok(x)),
+                Err(err) => Some(Input::Err(args[1].clone(), err))
             }
         };
 }
