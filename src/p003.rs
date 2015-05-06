@@ -33,7 +33,7 @@ fn is_prime(n: usize) -> bool {
     fn witnesses(n: usize) -> &'static[usize] {
         match n {
             1 ... 1373652                   => { static A: &'static[usize] = &[2, 3]; A },
-            1373652 ... 4759123140          => { static A: &'static[usize] = &[2, 7, 61]; A },
+            1373653 ... 4759123140          => { static A: &'static[usize] = &[2, 7, 61]; A },
             4759123141 ... 2152302898746    => { static A: &'static[usize] = &[2, 3, 5, 7, 11]; A },
             2152302898747 ... 3474749660382 => { static A: &'static[usize] = &[2, 3, 5, 7, 11, 13]; A },
             _                               => { static A: &'static[usize] = &[2, 325, 9375, 28178, 450775, 9780504, 1795265022]; A }
@@ -50,7 +50,7 @@ fn is_prime(n: usize) -> bool {
         if a >= &n { break; }
 
         let mut x = num::pow::<BigUint>(a.to_biguint().unwrap(), d) % &big_n;
-        if x == big_1 || x == &big_n - &big_1 { continue; }
+        if x == big_1 { continue; }
 
         let mut t = s;
         while x != &big_n - &big_1 {
@@ -91,6 +91,11 @@ mod tests {
                  853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983,
                  991, 997],
             (1usize..1000).filter(|&x| super::is_prime(x)).collect::<Vec<_>>());
+    }
+
+    #[test]
+    fn medium_prime() {
+        assert_is_prime(9973);
     }
 
     #[test]
