@@ -1,11 +1,10 @@
-extern crate core;
-
 use std::env;
-use self::core::str::FromStr;
+use core::str::FromStr;
+use core::num::ParseIntError;
 
 pub enum Input<T> {
     Ok(T),
-    Err(String, core::num::ParseIntError)
+    Err(String, ParseIntError)
 }
 
 // TODO: generalizar a mas de un argumento

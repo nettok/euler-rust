@@ -1,5 +1,8 @@
 #![feature(core)]
 
+extern crate core;
+extern crate num;
+
 mod input;
 use input::{Input, get_input_from_args};
 

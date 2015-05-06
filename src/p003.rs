@@ -5,12 +5,9 @@
 //!
 //! What is the largest prime factor of the number 600851475143 ?
 
-extern crate core;
-extern crate num;
-
-use self::core::ops::Shr;
-use self::num::BigUint;
-use self::num::bigint::ToBigUint;
+use core::ops::Shr;
+use num::{pow, BigUint};
+use num::bigint::ToBigUint;
 
 /// Maximo Comun Divisor usando el algoritmo de Euclides
 fn gcd(mut a: usize, mut b: usize) -> usize {
@@ -49,7 +46,7 @@ fn is_prime(n: usize) -> bool {
     for a in witnesses(n) {
         if a >= &n { break; }
 
-        let mut x = num::pow::<BigUint>(a.to_biguint().unwrap(), d) % &big_n;
+        let mut x = pow::<BigUint>(a.to_biguint().unwrap(), d) % &big_n;
         if x == big_1 { continue; }
 
         let mut t = s;
